@@ -9,12 +9,12 @@ RSpec.describe Api::V1::IdeasController, type: :controller do
     expect(response.status).to eq(200)
   end
 
-  xit "renders the index template" do
+  it "renders the index template" do
     get :index
     expect(response).to render_template("index")
   end
 
-  xit "assigns @ideas" do
+  it "assigns @ideas" do
     get :index
     expect(assigns(:ideas)).to eq([idea])
   end
