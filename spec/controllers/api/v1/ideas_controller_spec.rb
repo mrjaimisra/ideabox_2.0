@@ -19,8 +19,13 @@ RSpec.describe Api::V1::IdeasController, type: :controller do
     expect(response).to render_template("index")
   end
 
-  it "creates a new idea" do
+  it "creates a new idea from the database" do
     expect { post :create, format: :json, idea: { title: "Second idea", body: "This is another idea" }
-    }.to change(Idea,:count)
+    }.to change(Idea, :count)
+  end
+
+  it "deletes an idea from the database" do
+    expect { delete :destroy, format: :json, id: idea.id
+    }.to change(Idea, :count)
   end
 end

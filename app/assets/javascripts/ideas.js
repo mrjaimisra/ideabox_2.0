@@ -16,6 +16,7 @@ $(document).ready(function () {
           + "<p>"
           + idea.body
           + "</p>"
+          + "<button id='delete-idea' name='delete-button' class='btn btn-default'>Delete</button>"
           + "</div>"
         )
       });
@@ -46,6 +47,21 @@ $(document).ready(function () {
           + "</p>"
           + "</div>"
         )
+      }
+    });
+  });
+
+  $('#ideas').delegate('#delete-idea', 'click', function () {
+    var $idea = $(this).closest('.idea');
+
+    $.ajax({
+      type:     'DELETE',
+      url:      'api/v1/ideas/' + $idea.attr('data-id') + '.json',
+      success:  function () {
+        $idea.remove()
+      },
+      error:    function () {
+        $idea.remove()
       }
     });
   });
