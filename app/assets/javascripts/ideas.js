@@ -1,7 +1,7 @@
 $(document).ready(function () {
   $.ajax({
     type:     'GET',
-    url:      'http://jaidea.herokuapp.com/api/v1/ideas.json',
+    url:      'http://jaideabox.herokuapp.com/api/v1/ideas.json',
     success:  function (ideas) {
       //console.table(ideas)
       $.each(ideas, function (index, idea) {
