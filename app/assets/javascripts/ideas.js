@@ -1,7 +1,7 @@
 $(document).ready(function () {
   $.ajax({
     type:     'GET',
-    url:      'http://localhost:3000/api/v1/ideas.json',
+    url:      'api/v1/ideas.json',
     success:  function (ideas) {
       //console.table(ideas)
       $.each(ideas, function (index, idea) {
@@ -30,7 +30,7 @@ $(document).ready(function () {
 
     $.ajax({
       type:     'POST',
-      url:      'http://localhost:3000/api/v1/ideas.json',
+      url:      'api/v1/ideas.json',
       data:     ideaParams,
       success:  function (newIdea) {
         $('#ideas').append(
