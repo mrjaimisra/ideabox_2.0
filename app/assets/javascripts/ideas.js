@@ -48,19 +48,19 @@ $(document).ready(function () {
       success: function (newIdea) {
         $('#ideas').prepend(
           "<div class='idea col s10 offset-s1' data-id='"
-          + idea.id
+          + newIdea.id
           + "'> <div class='col s10'><h4>"
-          + idea.title
+          + newIdea.title
           + "</h4>"
           + "</div>"
           + "<div class='col s2 quality'>"
           + "<h5> quality: "
-          + idea.quality
+          + newIdea.quality
           + "</h5>"
           + "</div>"
           + "<div class='col s10'>"
           + "<p>"
-          + idea.body
+          + newIdea.body
           + "</p>"
           + "<button id='delete-idea' name='delete-button' class='waves-effect waves-teal btn-flat delete-button'>Delete</button>"
           + "</div>"
