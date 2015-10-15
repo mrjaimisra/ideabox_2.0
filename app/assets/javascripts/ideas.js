@@ -102,7 +102,7 @@ $(document).ready(function () {
 
     $.ajax({
       type: 'PUT',
-      url: 'http://localhost:3000/api/v1/ideas/' + $('.idea-id').val(),
+      url: 'https://ideabox100.herokuapp.com/api/v1/ideas/' + $('.idea-id').val(),
       data: ideaParams,
       success: function () {
         document.location.href = '/'
@@ -147,7 +147,7 @@ $(document).ready(function () {
 
     $.ajax({
       type: 'PUT',
-      url: 'http://localhost:3000/api/v1/ideas/' + $idea.attr('data-id') + ".json",
+      url: 'https://ideabox100.herokuapp.com/api/v1/ideas/' + $idea.attr('data-id') + ".json",
       data: ideaParams,
       success: function () {
         $idea.find('#quality')[0].innerHTML = ideaParams['idea']['quality']
@@ -188,7 +188,7 @@ $(document).ready(function () {
 
     $.ajax({
       type: 'PUT',
-      url: 'http://localhost:3000/api/v1/ideas/' + $idea.attr('data-id') + ".json",
+      url: 'https://ideabox100.herokuapp.com/api/v1/ideas/' + $idea.attr('data-id') + ".json",
       data: ideaParams,
       success: function () {
         $idea.find('#quality')[0].innerHTML = ideaParams['idea']['quality']
