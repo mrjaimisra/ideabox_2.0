@@ -102,7 +102,7 @@ $(document).ready(function () {
 
     $.ajax({
       type: 'PUT',
-      url: 'https://ideabox100.herokuapp.com/api/v1/ideas/' + $('.idea-id').val(),
+      url: 'http://localhost:3000/api/v1/ideas/' + $('.idea-id').val(),
       data: ideaParams,
       success: function () {
         document.location.href = '/'
@@ -128,10 +128,10 @@ $(document).ready(function () {
     });
   });
 
-  function increaseQuality() {
-    if ($('#quality').text() === 'swill') {
+  function increaseQuality(quality) {
+    if (quality === 'swill') {
       return {quality: 'plausible'}
-    } else if ($('#quality').text() === 'plausible') {
+    } else if (quality === 'plausible') {
       return {quality: 'genius'}
     } else {
       return {quality: 'genius'}
@@ -139,26 +139,26 @@ $(document).ready(function () {
   }
 
   $('#ideas').delegate('#increase-quality', 'click', function () {
-    var ideaParams = {
-      idea: increaseQuality()
-    };
-
     var $idea = $(this).closest('.idea');
+    var quality = $idea.find('#quality')[0];
+    var ideaParams = {
+      idea: increaseQuality(quality.innerHTML)
+    };
 
     $.ajax({
       type: 'PUT',
-      url: 'https://ideabox100.herokuapp.com/api/v1/ideas/' + $idea.attr('data-id') + ".json",
+      url: 'http://localhost:3000/api/v1/ideas/' + $idea.attr('data-id') + ".json",
       data: ideaParams,
       success: function () {
-        $('#quality').load('#quality');
+        $idea.find('#quality')[0].innerHTML = ideaParams['idea']['quality']
       }
     });
   });
 
-  $("#filter").keyup(function(){
+  $("#filter").keyup(function () {
     var filter = $(this).val();
 
-    $(".idea-list").each(function(){
+    $(".idea-list").each(function () {
       if ($(this).text().search(new RegExp(filter, "i")) < 0) {
         $(this).fadeOut();
       } else {
@@ -166,79 +166,41 @@ $(document).ready(function () {
       }
     });
   });
-});
 
-function decreaseQuality() {
-  if ($('#quality').text() === 'genius') {
-    return {quality: 'plausible'}
-  } else if ($('#quality').text() === 'plausible') {
-    return {quality: 'swill'}
-  } else {
-    return {quality: 'swill'}
-  }
-}
 
-$('#ideas').delegate('#decrease-quality', 'click', function () {
-  var ideaParams = {
-    idea: decreaseQuality()
-  };
-
-  var $idea = $(this).closest('.idea');
-
-  $.ajax({
-    type: 'PUT',
-    url: 'https://ideabox100.herokuapp.com/api/v1/ideas/' + $idea.attr('data-id') + ".json",
-    data: ideaParams,
-    success: function () {
-      $('#quality').load('#quality');
+  function decreaseQuality(quality) {
+    if (quality === 'genius') {
+      return {quality: 'plausible'}
+    } else if (quality === 'plausible') {
+      return {quality: 'swill'}
+    } else {
+      return {quality: 'swill'}
     }
-  });
-});
-
-function truncate(body) {
-  if (body.length > 100) {
-    return body.split(' ').slice(0, 99).join(' ') + "...";
-  } else {
-    return body.split(' ').slice(0, 99).join(' ');
   }
-}
 
-// JS METHODS:
+  $('#ideas').delegate('#decrease-quality', 'click', function () {
+    var $idea = $(this).closest('.idea');
+    var quality = $idea.find('#quality')[0];
 
-//toggle $('.some-selector').toggle()
+    var ideaParams = {
+      idea: decreaseQuality(quality.innerHTML)
+    };
 
-// if you give toggle an argument, it will evaluate the truthiness of the argument
-// if it is true it will show it, if it is false it will hide it
+    $.ajax({
+      type: 'PUT',
+      url: 'http://localhost:3000/api/v1/ideas/' + $idea.attr('data-id') + ".json",
+      data: ideaParams,
+      success: function () {
+        $idea.find('#quality')[0].innerHTML = ideaParams['idea']['quality']
+      }
+    });
+  });
 
-// So, instead of:
-
-// if (whateverCondition) {
-//$('.some-selector').show()
-// else {
-//$('.some-selector').hide();
-//}
-
-//$('some-selector').toggle(inspiration.title.indexOf(searchTerm) ! == -1);
-
-//.css
-
-
-// USING BIND
-
-//// $.getJson('url', successFunction () {
-//  console.log(Success!)
-//}, failureFunction () {
-//  alert(FAIL!)
-//});
-
-// using promise object:
-
-//// $.getJson('api/v1/whatever');
-//  .then(function (idea) {
-//  addIdeaToThePage(idea)
-//})
-//  .fail(function (errorMessage) {
-//  alert(errorMessage);
-//});
-
-//$.post('api/vq/whatevers', { title: 'My Idea', body: "wowowo"});
+  function truncate(body) {
+    if (body.length > 100) {
+      return body.split(' ').slice(0, 99).join(' ') + "...";
+    } else {
+      return body.split(' ').slice(0, 99).join(' ');
+    }
+  }
+});
