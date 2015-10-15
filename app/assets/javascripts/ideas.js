@@ -150,7 +150,7 @@ $(document).ready(function () {
       url: 'https://ideabox100.herokuapp.com/api/v1/ideas/' + $idea.attr('data-id') + ".json",
       data: ideaParams,
       success: function () {
-        $('#quality').load('#quality');
+        $('#quality').load("https://ideabox100.herokuapp.com/api/v1/ideas/");
       }
     });
   });
@@ -190,7 +190,7 @@ $('#ideas').delegate('#decrease-quality', 'click', function () {
     url: 'https://ideabox100.herokuapp.com/api/v1/ideas/' + $idea.attr('data-id') + ".json",
     data: ideaParams,
     success: function () {
-      $('#quality').load('#quality');
+      $('#quality').load("https://ideabox100.herokuapp.com/api/v1/ideas/");
     }
   });
 });
