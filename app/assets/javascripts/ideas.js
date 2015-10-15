@@ -3,7 +3,6 @@ $(document).ready(function () {
     type: 'GET',
     url: 'api/v1/ideas.json',
     success: function (ideas) {
-      //console.table(ideas)
       $.each(ideas, function (index, idea) {
         $('#ideas').prepend(
           "<div class='idea col s10 offset-s1' data-id='"
@@ -14,9 +13,11 @@ $(document).ready(function () {
           + "</span>"
           + "</h4>"
           + "</div>"
-          + "<div class='col s2 quality'>"
+          + "<div class='col s2'>"
           + "<h5> quality: "
+          + "<div id='quality'>"
           + idea.quality
+          + '</div>'
           + "</h5>"
           + "</div>"
           + "<div class='col s10'>"
@@ -58,9 +59,11 @@ $(document).ready(function () {
           + "</span>"
           + "</h4>"
           + "</div>"
-          + "<div class='col s2 quality'>"
+          + "<div class='col s2'>"
           + "<h5> quality: "
+          + "<div id='quality'>"
           + newIdea.quality
+          + '</div>'
           + "</h5>"
           + "</div>"
           + "<div class='col s10'>"
@@ -97,7 +100,7 @@ $(document).ready(function () {
 
     $.ajax({
       type: 'PUT',
-      url: 'https://ideabox100.herokuapp.com/api/v1/ideas/' + $('.idea-id').val(),
+      url: 'http://localhost:3000/api/v1/ideas/' + $('.idea-id').val(),
       data: ideaParams,
       success: function () {
         document.location.href = '/'
@@ -122,7 +125,62 @@ $(document).ready(function () {
       }
     });
   });
+
+  function increaseQuality() {
+    if ($('#quality').text() === 'swill') {
+      return {quality: 'plausible'}
+    } else if ($('#quality').text() === 'plausible') {
+      return {quality: 'genius'}
+    } else {
+      return {quality: 'genius'}
+    }
+  }
+
+  $('#ideas').delegate('#increase-quality', 'click', function () {
+    var ideaParams = {
+      idea: increaseQuality()
+    };
+
+    var $idea = $(this).closest('.idea');
+
+    $.ajax({
+      type: 'PUT',
+      url: 'http://localhost:3000/api/v1/ideas/' + $idea.attr('data-id') + ".json",
+      data: ideaParams,
+      success: function () {
+        $('#quality').load('#quality');
+      }
+    });
+  });
 });
+
+function decreaseQuality() {
+  if ($('#quality').text() === 'genius') {
+    return {quality: 'plausible'}
+  } else if ($('#quality').text() === 'plausible') {
+    return {quality: 'swill'}
+  } else {
+    return {quality: 'swill'}
+  }
+}
+
+$('#ideas').delegate('#decrease-quality', 'click', function () {
+  var ideaParams = {
+    idea: decreaseQuality()
+  };
+
+  var $idea = $(this).closest('.idea');
+
+  $.ajax({
+    type: 'PUT',
+    url: 'http://localhost:3000/api/v1/ideas/' + $idea.attr('data-id') + ".json",
+    data: ideaParams,
+    success: function () {
+      $('#quality').load('#quality');
+    }
+  });
+})
+;
 
 function truncate(body) {
   if (body.length > 100) {
@@ -131,7 +189,6 @@ function truncate(body) {
     return body.split(' ').slice(0, 99).join(' ');
   }
 }
-
 
 // JS METHODS:
 
