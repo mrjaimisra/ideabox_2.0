@@ -1,7 +1,6 @@
 $(document).ready(function () {
-  $('.add-form').pushpin({top: $('.add-form').offset().top});
   $('.add-form').css('background', 'rgba(224, 247, 250, 0.9)')
-});
+}); 
 
 $(document).ready(function () {
   $.ajax({
