@@ -7,7 +7,8 @@ $(document).ready(function () {
         $('#ideas').prepend(
           "<div class='idea col s10 offset-s1' data-id='"
           + idea.id
-          + "'> <div class='col s10'><h4>"
+          + "'> <ul class='idea-list'>"
+          + "<li><div class='col s10'><h4>"
           + "<span class='idea-title'>"
           + idea.title
           + "</span>"
@@ -30,7 +31,8 @@ $(document).ready(function () {
           + "<div class='col s2'>"
           + "<button id='decrease-quality' name='decrease-button' class='btn-floating btn-large waves-effect waves'>-</button> "
           + "<button id='increase-quality' name='increase-button' class='btn-floating btn-large waves-effect waves'>+</button>"
-          + "</div>"
+          + "</div></li>"
+          + "</ul>"
           + "</div>"
         )
       });
@@ -152,6 +154,18 @@ $(document).ready(function () {
       }
     });
   });
+
+  $("#filter").keyup(function(){
+    var filter = $(this).val();
+
+    $(".idea-list").each(function(){
+      if ($(this).text().search(new RegExp(filter, "i")) < 0) {
+        $(this).fadeOut();
+      } else {
+        $(this).show();
+      }
+    });
+  });
 });
 
 function decreaseQuality() {
@@ -179,8 +193,7 @@ $('#ideas').delegate('#decrease-quality', 'click', function () {
       $('#quality').load('#quality');
     }
   });
-})
-;
+});
 
 function truncate(body) {
   if (body.length > 100) {
