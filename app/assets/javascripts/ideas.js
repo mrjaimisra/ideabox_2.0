@@ -1,10 +1,4 @@
 $(document).ready(function () {
-  $('.add-form').css('background', 'rgba(224, 247, 250, 0.9)')
-    .pushpin({top: $('.add-form').offset().top});
-
-});
-
-$(document).ready(function () {
   $.ajax({
     type: 'GET',
     url: 'api/v1/ideas.json',
