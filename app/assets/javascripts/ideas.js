@@ -1,6 +1,8 @@
 $(document).ready(function () {
   $('.add-form').css('background', 'rgba(224, 247, 250, 0.9)')
-}); 
+    .pushpin({top: $('.add-form').offset().top});
+
+});
 
 $(document).ready(function () {
   $.ajax({
@@ -94,8 +96,8 @@ $(document).ready(function () {
   $('#submit-edit-button').on('click', function () {
     var ideaParams = {
       idea: {
-        title: ideaTitle,
-        body: ideaBody
+        title: $('#idea-title').val(),
+        body: $('#idea-body').val()
       }
     };
 
@@ -136,8 +138,6 @@ function truncate(body) {
   }
 }
 
-var ideaTitle = $('#idea-title').val();
-var ideaBody = $('#idea-body').val();
 
 // JS METHODS:
 
