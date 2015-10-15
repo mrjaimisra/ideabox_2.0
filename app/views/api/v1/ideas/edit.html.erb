@@ -1,28 +1,55 @@
-<div class="container">
+<div class="navbar">
+    <nav>
+        <div class="nav-wrapper">
+            <div class="logogo">
+                <a href="/" class="brand-logo">Ja<span
+                        class="one-hundred">(</span>i<span
+                        class="one-hundred-one">)</span>dea<span
+                        class="two-hundred">[</span>box<span
+                        class="two-hundred-two">]</span></a>
+            </div>
+            <br/>
+        </div>
+    </nav>
+</div>
+
+<div class="container edit-page">
 
   <input class="idea-id",
          type="hidden",
          value="<%= @idea.id %>"
 
   <div class="row">
-    <h5>Edit: <%= @idea.title %></h5>
 
+      <span class="edit-title">
+        Edit | <span class="idea-title"><%= @idea.title %></span>
+      </span>
+
+      <input class="btn"
+               id="submit-edit-button"
+               type="button"
+               name="submit"
+               value="Save">
+
+    <div class="input-field col s12" id="title-input">
+
+    <label for="idea-title" class="active">Title</label>
     <input class="idea-form"
            type="text"
            id="idea-title"
-           value="<%= @idea.title %>"
+           value="<%= @idea.title %>">
+    </div>
     <br/>
 
-    <input class="idea-form"
-           type="text"
-           id="idea-body"
-           value="<%= @idea.body %>"
-    <br/>
+    <div class="input-field col s12">
+      <textarea class="idea-form materialize-textarea"
+           id="idea-body">
+           <%= @idea.body %>
+      </textarea>
 
-    <input class="btn btn-default"
-           id="submit-edit-button"
-           type="button"
-           name="submit"
-           value="Save">
+      <label for="idea-body" class="active">Body</label>
+      <br/>
+
+    </div>
   </div>
 </div>

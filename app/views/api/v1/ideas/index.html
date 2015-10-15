@@ -1,33 +1,42 @@
 <div class="navbar">
     <nav>
         <div class="nav-wrapper">
-            <a href="/" class="brand-logo">Ja(i)dea[Box]</a>
+            <div class="logogo">
+                <a href="/" class="brand-logo">Ja<span
+                        class="one-hundred">(</span>i<span
+                        class="one-hundred-one">)</span>dea<span
+                        class="two-hundred">[</span>box<span
+                        class="two-hundred-two">]</span></a>
+            </div>
             <br/>
         </div>
     </nav>
 </div>
 
-<div class="row add-form">
-        <h5>Add An Idea</h5>
+<div class="row">
+    <div class="col s12">
+        <div class="add-form">
+            <h5>Add An Idea</h5>
 
-        <input class="idea-form"
-               type="text"
-               id="idea-title"
-               placeholder="Title">
-        <br/>
+            <input class="idea-form"
+                   type="text"
+                   id="idea-title"
+                   placeholder="Title">
 
-        <input class="idea-form"
-               type="text"
-               id="idea-body"
-               placeholder="Body">
+            <br/>
 
-        <input class="btn btn-default pull-right"
-               id="create-idea"
-               type="button"
-               name="submit"
-               value="Save">
+        <textarea class="idea-form materialize-textarea"
+                  type="text"
+                  id="idea-body"
+                  placeholder="Body"></textarea>
+
+            <input class="btn"
+                   id="create-idea"
+                   type="button"
+                   name="submit"
+                   value="Save">
+        </div>
+    </div>
+
+    <div id="ideas" class="row"></div>
 </div>
-
-<div id="ideas" class="row">
-</div>
-
