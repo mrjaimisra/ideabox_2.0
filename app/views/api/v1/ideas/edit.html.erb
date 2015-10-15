@@ -1,0 +1,28 @@
+<div class="container">
+
+  <input class="idea-id",
+         type="hidden",
+         value="<%= @idea.id %>"
+
+  <div class="row">
+    <h5>Edit: <%= @idea.title %></h5>
+
+    <input class="idea-form"
+           type="text"
+           id="idea-title"
+           value="<%= @idea.title %>"
+    <br/>
+
+    <input class="idea-form"
+           type="text"
+           id="idea-body"
+           value="<%= @idea.body %>"
+    <br/>
+
+    <input class="btn btn-default"
+           id="submit-edit-button"
+           type="button"
+           name="submit"
+           value="Save">
+  </div>
+</div>

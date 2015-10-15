@@ -22,6 +22,7 @@ $(document).ready(function () {
           + idea.body
           + "</p>"
           + "<button id='delete-idea' name='delete-button' class='waves-effect waves-teal btn-flat delete-button'>Delete</button>"
+          + "<button id='edit-idea' name='edit-button' class='waves-effect waves-teal btn-flat delete-button'>Edit</button>"
           + "</div>"
           + "<div class='col s2'>"
           + "<button id='decrease-quality' name='decrease-button' class='btn-floating btn-large waves-effect waves'>-</button> "
@@ -63,6 +64,7 @@ $(document).ready(function () {
           + newIdea.body
           + "</p>"
           + "<button id='delete-idea' name='delete-button' class='waves-effect waves-teal btn-flat delete-button'>Delete</button>"
+          + "<button id='edit-idea' name='edit-button' class='waves-effect waves-teal btn-flat delete-button'>Edit</button>"
           + "</div>"
           + "<div class='col s2'>"
           + "<button id='decrease-quality' name='decrease-button' class='btn-floating btn-large waves-effect waves'>-</button> "
@@ -73,6 +75,32 @@ $(document).ready(function () {
       }
     });
     $('.idea-form').val("")
+  });
+
+  $('#ideas').delegate('#edit-idea', 'click', function () {
+    var $idea = $(this).closest('.idea');
+    document.location.href = 'api/v1/ideas/' + $idea.attr('data-id') + '/edit'
+  });
+
+  $('#submit-edit-button').on('click', function () {
+    var ideaParams = {
+      idea: {
+        title: $('#idea-title').val(),
+        body: $('#idea-body').val()
+      }
+    };
+
+    $.ajax({
+      type: 'PUT',
+      url: 'http://localhost:3000/api/v1/ideas/' + $('.idea-id').val(),
+      data: ideaParams,
+      success: function () {
+        document.location.href = '/'
+      },
+      error: function () {
+        alert('Title and Body cannot be blank')
+        }
+    });
   });
 
   $('#ideas').delegate('#delete-idea', 'click', function () {
@@ -90,6 +118,8 @@ $(document).ready(function () {
     });
   });
 });
+
+
 
 // JS METHODS:
 
