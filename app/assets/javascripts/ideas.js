@@ -145,7 +145,7 @@ $(document).ready(function () {
 
     $.ajax({
       type: 'PUT',
-      url: 'http://localhost:3000/api/v1/ideas/' + $idea.attr('data-id') + ".json",
+      url: 'https://ideabox100.herokuapp.com/api/v1/ideas/' + $idea.attr('data-id') + ".json",
       data: ideaParams,
       success: function () {
         $('#quality').load('#quality');
@@ -173,7 +173,7 @@ $('#ideas').delegate('#decrease-quality', 'click', function () {
 
   $.ajax({
     type: 'PUT',
-    url: 'http://localhost:3000/api/v1/ideas/' + $idea.attr('data-id') + ".json",
+    url: 'https://ideabox100.herokuapp.com/api/v1/ideas/' + $idea.attr('data-id') + ".json",
     data: ideaParams,
     success: function () {
       $('#quality').load('#quality');
