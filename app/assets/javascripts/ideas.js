@@ -83,7 +83,7 @@ $(document).ready(function () {
         )
       }
     });
-    $('.idea-form').val("")
+    $('.idea-form').val("").trigger('autoresize')
   });
 
   $('#ideas').delegate('#edit-idea', 'click', function () {
