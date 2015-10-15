@@ -24,21 +24,86 @@ $primary-color: color("blue", "lighten-2") !default;
 }
 
 .add-form {
-  margin-right: 1%;
-  margin-left: 1%;
+  border: solid 2px #26A69A;
+  //margin-left: 1%;
+  //margin-right: 1%;
+  padding: 1%;
+  width: 98%;
+  z-index: 4;
 }
+
+.add-form h5 {
+  padding-left: 1%;
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+  color: #212121;
+  opacity: 1;
+}
+
+::-moz-placeholder {
+  color: #212121;
+  opacity: 1;
+}
+
+:-ms-input-placeholder {
+  color: #212121;
+  opacity: 1;
+}
+
+.idea-form {
+  color: #212121;
+  }
 
 .idea {
   border: solid 2px #0086b3;
   margin: 1%;
 }
 
-.quality {
+.logogo {
+  margin-right: 45%;
+  margin-left: 45%;
+}
+
+.one-hundred {
+  color: #26A69A;
+}
+
+.one-hundred-one {
+  color: #26A69A;
+}
+
+.two-hundred {
+  color: #26A69A;
+}
+
+.two-hundred-two {
+  color: #26A69A;
 }
 
 #ideas {
   margin: 0 2%;
   align-content: center;
+}
+
+.idea-title {
+  color: #26A69A;
+}
+
+#title-input {
+  margin-top: 2%;
+}
+
+.edit-page {
+  margin-top: 2%;
+}
+
+.edit-title {
+  font-size: 28px;
+}
+
+#submit-edit-button {
+  float: right;
 }
 
 .delete-button {
