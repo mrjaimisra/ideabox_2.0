@@ -1,8 +1,5 @@
 [![Stories in Ready](https://badge.waffle.io/mrjaimisra/ideabox_2.0.png?label=ready&title=Ready)](https://waffle.io/mrjaimisra/ideabox_2.0)
-# ideabox_2.0
-
-[![Stories in Ready](https://badge.waffle.io/mrjaimisra/ArtSup.png?label=ready&title=Ready)](https://waffle.io/mrjaimisra/ArtSup)
-# ArtSup
+# IdeaBox 2.0 (Ideabox100)
 ========
 
 ##### [Jai Misra](https://github.com/mrjaimisra)
@@ -34,6 +31,5 @@ This project is my introduction to client-side development, including my first t
 
   - [waffle](https://waffle.io/mrjaimisra/ArtSup)
   - [travis]  (https://travis-ci.org/mrjaimisra/ArtSup)
-  - simple cov
-  - ****Skylight****
-  
+  - Simplecov
+  - Skylight
