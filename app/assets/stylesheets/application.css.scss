@@ -24,9 +24,7 @@ $primary-color: color("blue", "lighten-2") !default;
 }
 
 .add-form {
-  border: solid 2px #26A69A;
-  //margin-left: 1%;
-  //margin-right: 1%;
+  border: solid 2px #0086b3;
   padding: 1%;
   width: 98%;
   z-index: 4;
@@ -37,22 +35,22 @@ $primary-color: color("blue", "lighten-2") !default;
 }
 
 ::-webkit-input-placeholder { /* WebKit browsers */
-  color: #212121;
+  color: #26A69A;
   opacity: 1;
 }
 
 ::-moz-placeholder {
-  color: #212121;
+  color: #26A69A;
   opacity: 1;
 }
 
 :-ms-input-placeholder {
-  color: #212121;
+  color: #26A69A;
   opacity: 1;
 }
 
 .idea-form {
-  color: #212121;
+  color: #26A69A;
   }
 
 .idea {
@@ -108,18 +106,18 @@ $primary-color: color("blue", "lighten-2") !default;
 
 .delete-button {
   float: right;
-  border: solid 2px #0086b3;
+  border: solid 2px #26A69A;
   margin-bottom: 1%;
 
 }
 
 .edit-button {
-  border: solid 2px #0086b3;
+  border: solid 2px #26A69A;
   margin-bottom: 1%;
   background: #fff;
   color: #000000;
 }
 
 .edit-form {
-  border: solid 2px #0086b3;
+  border: solid 2px #26A69A;
 }
