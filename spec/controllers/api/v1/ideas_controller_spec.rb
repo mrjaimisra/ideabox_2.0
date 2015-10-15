@@ -28,4 +28,14 @@ RSpec.describe Api::V1::IdeasController, type: :controller do
     expect { delete :destroy, format: :json, id: idea.id
     }.to change(Idea, :count)
   end
+  
+  it "updates an existing idea in the database" do
+    put :update, format: :json, id: idea.id, idea: { title: "What", body: "Hey" }
+
+    idea.reload
+
+    expect(response.status).to eq(204)
+    expect(idea.title).to eq("What")
+    expect(idea.body).to eq("Hey")
+  end
 end

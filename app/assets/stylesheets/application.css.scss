@@ -47,3 +47,14 @@ $primary-color: color("blue", "lighten-2") !default;
   margin-bottom: 1%;
 
 }
+
+.edit-button {
+  border: solid 2px #0086b3;
+  margin-bottom: 1%;
+  background: #fff;
+  color: #000000;
+}
+
+.edit-form {
+  border: solid 2px #0086b3;
+}
