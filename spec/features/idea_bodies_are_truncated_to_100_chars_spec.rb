@@ -4,6 +4,7 @@ RSpec.feature "Idea bodies are truncated to 100 chars", type: :feature do
 
   scenario "successfully for a long body", js: true do
     visit root_path
+    click_on "Add An Idea"
 
     fill_in "Title", with: "Title"
     fill_in "Body", with: (1..100).map { |num| num }.to_s
@@ -16,6 +17,7 @@ RSpec.feature "Idea bodies are truncated to 100 chars", type: :feature do
 
   scenario "and does not add an ellipses to a short body", js: true do
     visit root_path
+    click_on "Add An Idea"
 
     fill_in "Title", with: "Title"
     fill_in "Body", with: "Body"

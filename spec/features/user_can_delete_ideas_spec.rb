@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.feature "User can delete ideas", type: :feature do
   scenario "successfully", js: true do
     visit root_path
+    click_on "Add An Idea"
 
     fill_in "Title", with: "Title"
     fill_in "Body", with: "Anything"

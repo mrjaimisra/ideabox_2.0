@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.feature "User can add ideas", type: :feature do
   scenario "successfully", js: true do
     visit root_path
+    click_on "Add An Idea"
 
     fill_in "Title", with: "Title"
     fill_in "Body", with: "Anything"
@@ -22,6 +23,7 @@ RSpec.feature "User can add ideas", type: :feature do
 
   scenario "unsuccessfully without a title", js: true do
     visit root_path
+    click_on "Add An Idea"
 
     fill_in "Title", with: ""
     fill_in "Body", with: "Something"
@@ -33,6 +35,7 @@ RSpec.feature "User can add ideas", type: :feature do
 
   scenario "unsuccessfully without a body", js: true do
     visit root_path
+    click_on "Add An Idea"
 
     fill_in "Title", with: "Title"
     fill_in "Body", with: ""
