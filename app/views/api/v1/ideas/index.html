@@ -2,7 +2,6 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
 </head>
-
 <div class="navbar">
     <nav>
         <div class="nav-wrapper">
@@ -17,39 +16,59 @@
     </nav>
 </div>
 
-<div class="row">
-    <div class="col s12">
-        <div class="add-form">
-            <h5>Add An Idea</h5>
 
-            <input class="idea-form"
-                   type="text"
-                   id="idea-title"
-                   placeholder="Title">
+<div class="add-search">
+    <div class="col s12 add-form">
+        <ul class="collapsible popout" data-collapsible="accordion">
+            <li>
+                <div class="collapsible-header" id="add-header">
+                    <i class="material-icons">library_add</i>
+                    <a href="#">Add An Idea</a>
+                </div>
 
-            <br/>
+                <div class="collapsible-body">
+                    <p>
+                        <input class="idea-form"
+                               type="text"
+                               id="idea-title"
+                               placeholder="Title">
+                    </p>
+                </div>
 
-        <textarea class="idea-form materialize-textarea"
-                  type="text"
-                  id="idea-body"
-                  maxlength="3000"
-                  placeholder="Body"></textarea>
+                <div class="collapsible-body">
+                    <p>
+                              <textarea class="idea-form materialize-textarea"
+                                        type="text"
+                                        id="idea-body"
+                                        maxlength="3000"
+                                        placeholder="Body"></textarea>
+                    </p>
+                </div>
+                <div class="collapsible-body">
+                    <p>
+                        <input class="btn"
+                               id="create-idea"
+                               type="button"
+                               name="submit"
+                               value="Save">
+                    </p>
+                </div>
 
-            <input class="btn"
-                   id="create-idea"
-                   type="button"
-                   name="submit"
-                   value="Save">
-        </div>
+                <form id="live-search" action="" class="styled" method="post">
+                    <fieldset class="search-bar">
+                        <div class="test" id="search-icon">
+                            <i class="material-icons">search </i>
+                        </div>
+                        <div class="test" id="search-line">
+                            <input type="text" class="text-input" id="filter"
+                                   placeholder="search"/>
+                        </div>
+                    </fieldset>
+                </form>
+            </li>
+        </ul>
     </div>
 
-    <div class="container">
-        <form id="live-search" action="" class="styled" method="post">
-            <fieldset class="search-bar">
-                <input type="text" class="text-input" id="filter" placeholder="search"/>
-                <i class="material-icons">search </i>
-            </fieldset>
-        </form>
-    </div>
-    <div id="ideas" class="row"></div>
 </div>
+
+<div id="ideas" class="row"></div>

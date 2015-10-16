@@ -1,3 +1,13 @@
+$(document).ready(function(){
+  $('.add-search').pushpin({ top: $('.add-search').offset().top });
+});
+
+$(document).ready(function(){
+  $('.collapsible').collapsible({
+    accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+  });
+});
+
 $(document).ready(function () {
   $.ajax({
     type: 'GET',
@@ -80,7 +90,9 @@ $(document).ready(function () {
           + "<button id='increase-quality' name='increase-button' class='btn-floating btn-large waves-effect waves'>+</button>"
           + "</div>"
           + "</div>"
-        )
+        );
+
+        Materialize.toast('idea created', 5000, 'toasty');
       }
     });
     $('.idea-form').val("").trigger('autoresize')

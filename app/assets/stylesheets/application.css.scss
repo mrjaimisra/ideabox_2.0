@@ -23,13 +23,6 @@ $primary-color: color("blue", "lighten-2") !default;
   background-color: #0086b3;
 }
 
-.add-form {
-  border: solid 2px #0086b3;
-  padding: 1%;
-  width: 98%;
-  z-index: 4;
-}
-
 .add-form h5 {
   padding-left: 1%;
 }
@@ -59,8 +52,8 @@ $primary-color: color("blue", "lighten-2") !default;
 }
 
 .logogo {
-  margin-right: 45%;
-  margin-left: 45%;
+  margin-right: 50%;
+  margin-left: 40%;
 }
 
 .one-hundred {
@@ -122,7 +115,55 @@ $primary-color: color("blue", "lighten-2") !default;
   border: solid 2px #26A69A;
 }
 
+/* Search */
+
+.add-search {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 1%;
+  width: 98%;
+  z-index: 4;
+}
 
 .search-bar {
+  color: #26A69A;
   border: none;
+}
+
+.test {
+  display: inline-block;
+}
+
+#search-icon {
+  position: relative;
+  top: 0.5em;
+}
+
+#filter {
+  width: 100%;
+}
+
+/* Add form */
+
+.collapsible-popout {
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  text-shadow: none;
+}
+
+#add-header {
+  color: #26A69A;
+}
+
+#add-header a {
+  color: #26A69A;
+}
+
+/* Toast */
+
+.toasty {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background-color: #0086b3;
 }

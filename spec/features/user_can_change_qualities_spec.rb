@@ -5,6 +5,7 @@ RSpec.feature "User can increase an ideas quality", type: :feature do
 
   scenario "successfully", js: true do
     visit root_path
+    click_on "Add An Idea"
 
     expect(page).to have_content("The title")
     expect(page).to have_content("swill")
